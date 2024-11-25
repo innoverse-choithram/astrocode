@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUI Question</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap');
+        *{
+            
+            overflow-x:hidden; 
+            font-size: 17px;
+            font-family: monospace;
+        }
+
+        ol li{
+            margin-bottom:10px;
+            margin-top:10px;
+        }
+        header{
+            background-image: url("astrocode.png");
+            overflow: hidden;
+            background-repeat: no-repeat;
+            width:100vw;
+            margin-bottom:5%;
+            background-size:100vw;
+            position:absolute;
+            top:0;
+            right:0;    
+            height:50vh;
+        }
+        
+        #containersection{
+            margin-top:30%;
+            margin-left:20px;
+            color:rgb(255, 255, 255);
+        }
+        #bonus{
+            margin-left:10px;
+        }
+        #bonus b{
+            font-size:20px;
+        }
+        
+#space, .stars {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  bottom: -500px;
+  left: 0;
+  right: 0;
+  z-index:100;
+}
+
+body{
+  background:#000;
+}
+
+
+.stars {
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: zoom 5s infinite;
+  opacity: 0;
+}
+
+.stars:nth-child(1) {
+  background-position: 50% 50%;
+  animation-delay: 0s;
+}
+.stars:nth-child(2) {
+  background-position: 20% 60%;
+  animation-delay: 1s;
+}
+.stars:nth-child(3) {
+  background-position: -20% -30%;
+  animation-delay: 2s;
+}
+.stars:nth-child(4) {
+  background-position: 40% -80%;
+  animation-delay: 3s;
+}
+.stars:nth-child(5) {
+  background-position: -20% 30%;
+  animation-delay: 4s;
+}
+
+@keyframes zoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+    animation-timing-function: ease-in;
+  } 
+  85% {
+    opacity: 0.6;
+    transform: scale(2.8);
+    animation-timing-function: linear;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3.5);
+  }
+}
+
+h1{
+    font-family: 'Orbitron';
+    font-weight:bold;
+    color:white;
+    letter-spacing: 25px;
+    font-size: 7em;
+    
+    text-shadow: 0px 0px 10px white;
+}
+h2{
+    font-family: 'Orbitron';
+    font-weight: lighter;
+    color:white;
+    letter-spacing: 15px;
+    font-size: 2em;
+    display: inline-block; 
+    text-align: center; 
+    width: 100%;
+    position:relative;
+    top:-100px;
+    
+}
+#heading{
+    display: inline-block; 
+    text-align: center; 
+    width: 100%;
+    overflow: hidden;
+}
+@media (max-width:1100px) {
+    h1{
+        font-size: 5em;
+        letter-spacing: 15px;
+    }
+   
+    
+}
+@media (max-width:800px) {
+    h1{
+        font-size: 3em;
+    }
+   h2{
+    font-size:1.5em;
+    top:-40px;
+   }
+}
+@media (max-width:660px) {
+    h1{font-size: 2em;}
+   
+    img{
+        width:450px;
+        height:300px;
+    }
+    h2{
+    font-size:1em;
+    top:-30px;
+   }
+}
+@media (max-width:500px) {
+    h2{
+    font-size:1em;
+    top:-40px;
+   }
+   header{
+    margin-bottom: 8%;
+   }
+}
+    </style>
+</head>
+<body>
+    
+    <header id="header">
+        <div id="heading">
+            <h1>ASTROCODE</h1>
+            <h2>ROUND 2</h2>
+        </div>
+        
+    </header>
+    <section id="containersection"> 
+       
+    <div id="content">
+        
+        <div id="space">
+            <div class="stars"></div>
+            <div class="stars"></div>
+            <div class="stars"></div>
+            <div class="stars"></div>
+            <div class="stars"></div>
+          </div>
+          
+        Your task is to create a GUI-based Intergalactic Mission Scheduler application using only either <b><i>PyQt</i></b> or <b><i>Tkinter</i></b> that meets the following specifications :
+        <ol>
+            <li>Three Planetary Station Windows (Time Slots):
+                <ul>
+                <li>Earth Station (8 AM - 12 PM): Handles tasks scheduled in Earth’s morning hours.</li>
+                <li>Mars Outpost (12 PM - 6 PM): Oversees Mars-based operations scheduled for the afternoon.</li>
+                <li>Neptune Base (6 PM - 10 PM): Manages Neptune-based missions and evening tasks.</li>
+                </ul>
+            </li>
+            <li> Mission Input Form
+                <ul>
+                    <li>Details: Allow users to add a mission name, short description, start time, and priority level (Low, Medium, High).</li>
+                    <li>Allot each mission to the appropriate planetary station window based on the start time entered:
+                        <ul>
+                            <li> Earth Station for times ranging from 8 AM - 12 PM </li>
+                            <li>Mars Outpost for times ranging from 12 PM - 6 PM</li>
+                            <li>Neptune Base for times ranging from 6 PM - 10 PM  </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            
+            <li> Priority level and color coding
+                <ul>
+                    <li>Each mission should be color coded based off of its priority level
+                        <ul>
+                            <li style="color:#ff0f0f">Red for High-priority (Critical Missions)</li>
+                            <li style="color:#ffff00">Yellow for Medium-priority (Standard Operations)</li>
+                            <li style="color:#00ff0f">Green for Low-priority (Routine Tasks)</li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </li>
+            <li>Edit and delete options
+                <ul>
+                    <li>Each mission entry should have buttons for editing or deleting the mission. Updates should reflect immediately.</li>
+                </ul>
+            </li>
+        </ol>
+        <p id = "bonus">
+            <b>BONUS 1:</b> <i>Sort missions within each window so that high-priority missions appear at the top, followed by medium, then low-priority.</i> <br>
+            <b>BONUS 2:</b> <i>Show the total number of missions in each planetary station window to monitor station workload.</i>
+            <br>
+            <br>
+            <b>Completion of bonus features will get you extra marks, but there is no penalty for not doing them.</b>
+        </p>
+        <b>Sample GUI window -</b> <br> 
+        <img src="sample.png" width="550px" height="400px" style="margin:5%;">
+    </div>
+</section>
+</body>
+</html>
